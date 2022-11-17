@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SLEIGothicTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SLEIGothicTTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+}
+body {
+    background: url("../static/back8.png");
+    background-size: cover;
+    /* color: white; */
+}
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 200%;
+    align-items: center;
+    padding: 1.2rem 0;
+}
+
+header>p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+header>ul {
+    display:flex;
+}
+
+header>ul>li {
+    list-style-type: none;
+    margin-left: 2rem;
+}
+header>ul>li>a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding-bottom: 5px;
+    color: white;
+}
+
+header>ul>li:first-child>p {
+    border-bottom: 5px solid white;
+}
+header>ul>li>a:hover {
+    border-bottom: 5px solid rgb(246, 224, 255);
+}
+@media screen and (max-width:500px){
+    header {
+        flex-direction: 
+        column;
+    }
+}
+section {
+    /* padding: 0.3rem; */
+    text-align: center;
+}
+.circle>p {
+    font-family: 'SLEIGothicTTF';
+    display: block;
+    /* border: 1px solid black; */
+    width: 500px;
+    height: 500px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: auto;
+    padding: 1rem;
+    /* border-radius: 45%; */
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    position:relative;
+}
+  .circle>p::after {
+    content: "";
+    background: url("../static/moon.png");
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom : 0;
+    /* background-image: url(moon.png); */
+    background-size: cover;
+    opacity: 0.20;
+  }
+
+p.result{
+    display:table-cell;
+    vertical-align:middle;
+    font-size: 45px;
+  }
+
+footer {
+  font-family: 'Arial';
+  line-height: 10px;
+  margin-top: 18vh;
+  font-size: 1.1rem;
+  color: rgb(212, 211, 211);
+}
+/*------------------------------- */
+
+@keyframes float{
+  0%{
+    transform: translateZ(11px);
+  }
+  100%{
+    transform: translateY(-9px) translateX(-6px) translateZ(21px);
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0.33;
+    transform: scale(.82);
+  }
+}
+
+@media only screen and (max-width: 420px){
+  body{
+    transform: scale(.62);
+  }
+}
+
+/*---------------------------------*/
+
+
+html body{
+  height: 100vh;
+  overflow: hidden;
+  border-style: none;
+}
+
+.container1 {
+  width: 500px;
+  height: 500px;
+  /* margin: 140px 360px 0 0; */
+  perspective: 1100px; 
+  align-content: center;
+  text-align: center;
+  position: flex;
+  justify-content: center;
+  /*//부모의 자식 요소가 3차원의 애니메이션 효과를 가질때, 300px의 거리에서 보는 원근감을 줌 */
+}
+
+.container1 .item {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #828282;
+  font-size: 35px;
+  backface-visibility: hidden;
+  /* 카드의 뒷면을 안보이게 처리-카드가 뒤집히면 뒷면이 안보임 */
+  transition: 1s;
+  /* margin: 0 auto; */
+}
+
+.container1 .item.front {
+  /* //앞면 카드가 부유하게 되어, 뒷면 카드가 아래에서 위로 올라감 -> 요소 두개가 겹치게 됨 */
+  position: absolute;
+  font-family: 'SLEIGothicTTF';
+
+  border-radius: 50%;
+  content: "";
+  align-items: center;
+  /*//명시적으로 기본값 설정, 없어도 됨*/
+  /* line-height: 500px; */
+  color: rgb(255, 255, 255);
+  font-size: 300%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  justify-content: center;
+  cursor: pointer;
+  vertical-align: center;
+  z-index: 1;
+  /* margin-top:1rem; */
+}
+
+.container1 .item.front:after {
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../static/moon.png');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity : 0.4;
+  z-index: -1;}
+
+
+
+.container1:hover .item.front {
+  transform: rotateY(180deg);
+  cursor: pointer;  
+}
+
+.container1 .item.back {
+  transform: rotateY(-180deg)
+
+}
+
+.container1:hover .item.back {
+  transform: rotateY(0deg);
+  font-family: 'SLEIGothicTTF';
+  display: block;
+  /* border: 1px solid black; */
+  width: 500px;
+  height: 500px;
+  font-size: 2rem;
+  font-weight: 500;
+  /* margin: auto; */
+  padding: 1rem;
+  /* border-radius: 45%; */
+  text-decoration: none;
+  align-items: center;
+  position:relative;
+  line-height: 45px;
+  color: rgb(255, 255, 255);
+  font-size: 230%;
+  transform: rotateY(0deg);
+  /* background-image: url("./moon.png");
+  background-size: cover; */
+  overflow: hidden;
+  /* opacity: 0.5; */
+  content: "";
+  position:absolute;
+  text-align: center;
+  border-radius: 50%;
+}
+.container1 .item.item.back:after {
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../static/moon.png');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity : 0.4;
+  z-index: -1;}
+
+/* .container1:hover .item.back::after {
+  transform: rotateY(0deg);
+  background: url("../static/moon.png");
+  background-size: cover;
+  overflow: hidden;
+  opacity: 0.7;
+  content: "";
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom : 0;
+} */

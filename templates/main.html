@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <title>TTM</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css?family=Sunflower:500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<div class="container">
+  <header class="header">
+     <h1><a href="home3.html">의류판매량 예측 프로그램</a></h1>
+  </header>
+  <aside class="aside"></aside>
+  <aside class="aside2"></aside>
+  <footer class="footer"></footer>
+  <main class="main">
+    <form action="/predict" method="post">
+    <!-- <form action="http://localhost:5000/predict" method="post"> -->
+    
+
+        <div class="rating_count">
+           <h2>총 의류 평점 수</h2> 
+            <label for="rating_count">
+                <input type="text" name="rating_count" required placeholder="판매하는 의류 평점의 총 갯수">
+            </label>
+            </div>
+
+        
+        <div class="merchant_rating_count">
+          <h2>판매자 평점 수</h2>
+            <label for="merchant_rating_count">
+                <input type="text" name="merchant_rating_count" required placeholder="판매자의 평점의 총 갯수">
+            </label>
+        </div>
+
+         
+        <div class="product_variation_inventory">
+          <h2>총 재고</h2>  
+            <label for="product_variation_inventory">
+                <input type="text" name="product_variation_inventory" required placeholder="현재 남아있는 재고의 갯수">
+            </label>
+        </div>
+
+         
+        <div class="n_tags">
+          <h2>태그 수</h2>
+            <label for="n_tags">
+                <input type="text" name="n_tags" required placeholder="상품에 달린 태그의 갯수">
+            </label>
+        </div>
+
+        <h2>상품 평점</h2>
+        <div id="rate" class="rating">
+          <!-- FIFTH STAR -->
+          <input type="radio" id="star_5" name="rate" value="5">
+          <label for="star_5" title="Five">★</label>
+          <!-- FOURTH STAR -->
+          <input type="radio" id="star_4" name="rate" value="4">
+          <label for="star_4" title="Four">★</label>
+          <!-- THIRD STAR -->
+          <input type="radio" id="star_3" name="rate" value="3">
+          <label for="star_3" title="Three">★</label>
+          <!-- SECOND STAR -->
+          <input type="radio" id="star_2" name="rate" value="2">
+          <label for="star_2" title="Two">★</label>
+          <!-- FIRST STAR -->
+          <input type="radio" id="star_1" name="rate" value="1">
+          <label for="star_1" title="One">★</label>
+        
+<!--
+Copyright (c) 2019 by Timothy M. LeBlanc (https://codepen.io/WhiteWolfWizard/pen/kylpj)
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+        </div> 
+            <h2>성별</h2>
+                <div class="sex">
+                <!-- <a href="https://www.flaticon.com/kr/free-icons/-" title="사랑과 로맨스 아이콘">사랑과 로맨스 아이콘  제작자: Aziz Muttaqin - Flaticon</a> -->
+                <label for="male">
+                    <input id="male" name="sex" type="radio" value ="m">
+                    <img src="{{url_for('static',filename='icon/male.png')}}">
+                </label>
+                <label for="female">
+                    <input id="female" name="sex" type="radio" value="f"/>
+                    <img src="{{url_for('static',filename='icon/female.png')}}">
+                </label>
+            </div>
+      
+            <h2>의상 종류</h2>
+                <div class="clothing">
+                  
+                    <label for="shirts">
+                        <input type="radio" id="shirts" name="clothing" value="0">
+                        <img src="{{url_for('static',filename='icon/shirts.png')}}">
+                    <br>상의</label>
+                    <label for="skirt">
+                        <input type="radio" id="skirt" name="clothing" value="1">
+                        <img src="{{url_for('static',filename='icon/skirt.png')}}">
+                    <br>치마</label>
+                    <label for="shorts">
+                        <input type="radio" id="shorts" name="clothing" value="2">
+                        <img src="{{url_for('static',filename='icon/shorts.png')}}">
+                    <br>바지</label>
+                    <label for="robe">
+                        <input type="radio" id="robe" name="clothing" value="3">
+                        <img src="{{url_for('static',filename='icon/outer.png')}}">
+                    <br>아우터</label>
+                    <label for="dress">
+                        <input type="radio" id="dress" name="clothing" value="4">
+                        <img src="{{url_for('static',filename='icon/dress.png')}}">
+                    <br>원피스</label>
+                    <label for="sleepwear">
+                        <input type="radio" id="sleepwear" name="clothing" value="5">
+                        <img src="{{url_for('static',filename='icon/sleepwear.png')}}">
+                    <br>잠옷</label>
+                    <label for="underwear">
+                        <input type="radio" id="underwear" name="clothing" value="6">
+                        <img src="{{url_for('static',filename='icon/underwear.png')}}">
+                    <br>속옷</label>
+                    <label for="swim">
+                        <input type="radio" id="swim" name="clothing" value="7">
+                        <img src="{{url_for('static',filename='icon/swimsuit.png')}}">
+                    <br>수영복</label>
+                </div>
+            
+                <h2>색상</h2>
+                <div id="boxes">
+                    <div class = "color_contents" style="--color: #F6F6F6">
+                        <input type="radio" id="select" name="color" class="sel" value="1"><label for="select"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #000000">
+                    <input type="radio" id="select2" name="color" class="sel" value="0"> <label for="select2"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #f44336">
+                        <input type="radio" id="select3" name="color" class="sel" value="2"><label for="select3"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #4caf50">
+                        <input type="radio" id="select4" name="color" class="sel" value="3"><label for="select4"></label>
+                    </div>
+                    <div  class = "color_contents" style="--color: #3333ff">
+                        <input type="radio" id="select5" name="color" class="sel" value="4"><label for="select5"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #ff9800">
+                        <input type="radio" id="select6" name="color" class="sel" value="5"><label for="select6"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #e91e63">
+                        <input type="radio" id="select7" name="color" class="sel" value="6"><label for="select7"></label>
+                    </div>
+                    <div class = "color_contents" style="--color: #2196f3">
+                        <input type="radio" id="select8" name="color" class="sel" value="7"><label for="select8"></label>
+                    </div>
+                </div>
+                <div class="sale_predict">
+                    <button class="sale_prediction" type="submit">판매량 예측하기</button>
+                </div>   
+            <script type="text/javascript" src="{{url_for('static',filename='script_color.js')}}"></script>
+      </div>
+    </form>
+  </main>
+
+  </main>
+  
+</div>
+  </body>
+</html>

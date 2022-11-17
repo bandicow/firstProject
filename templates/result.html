@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='Result.css')}}">
+    <title>TTM</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p>TTM</p>
+            <ul>
+                <li><a onclick="window.location.href='/'">HOME</a>
+                </li>
+                <li><a onclick="window.location.href='/main'">MAIN</a>
+                </li>
+            </ul>
+        </header>
+        <div class="container1">
+            <div class="item front"><br><br><br><p>예상 제작량<br>{{pred}} 벌</p></div>
+            <div class="item back"><br><br><P>총 의류 평점 수: {{data1}}개</P>
+            <P>판매자 평점 수 : {{data2}}개</P>
+            <P>총 재고 : {{data3}}벌</P>
+            <P>태그 수 : {{data4}}개</P>
+            <P>상품 별점 : {{data5}}점</P>
+            <P>성별 : {{성별}}</P>
+            <P>의상종류 : {{의류}}</P>
+            <P>색상 : {{색상}}</P></div>
+        </div>
+
+
+        <footer>TTM template for GJaiSchool by @TTM</footer>
+
+    </div>
+
+    <!-- <div class="contentBox">
+        <span class="contentBox__item">item</span>
+      </div> -->
+  
+
+</body>
+</html>
+

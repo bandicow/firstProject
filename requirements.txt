@@ -1,0 +1,13 @@
+scipy
+numpy==1.21.5
+Flask==1.1.2
+requests
+pandas
+pandas==1.4.2
+scikit-learn==1.1.1
+pip
+xgboost==1.6.1
+Jinja2==3.0.3
+itsdangerous==2.0.1
+markupsafe==2.0.1
+Werkzeug==2.0.3
